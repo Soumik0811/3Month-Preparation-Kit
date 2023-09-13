@@ -1,0 +1,30 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+def plusMinus(arr):
+    # Write your code here
+    n=len(arr)
+    c,t,z=0,0,0
+    for i in arr:
+        if i<0 :
+            c=c+1
+        elif i>0:
+            t=t+1
+        elif i==0:
+            z=z+1
+    print(t/n)
+    print(c/n)
+    print(z/n)
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
