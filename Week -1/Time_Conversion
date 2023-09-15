@@ -1,0 +1,31 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def timeConversion(s):
+    period=s[8:len(s)] #storing the last character
+    hh=int(s[0:2]) #converting and storing the hour
+    last = s[3:8] #storing the rest of the string execpt hour and period
+    if period=="PM" and hh !=12:
+        hh +=12
+    elif period=="AM" and hh==12:
+        hh=0
+    #concatenation of the hour with last part
+    result=str(hh).zfill(2)
+    return f"{result}:{last}"
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
