@@ -1,0 +1,40 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def breakingRecords(scores):
+    m,n=0,0
+    
+    #store the value of maximum and minimum
+    int_min=scores[0]
+    int_max=scores[0]
+    
+    for i in scores:
+        if i < int_min:
+            int_min=i #updating the minimum value
+            n +=1
+        elif i >int_max:
+            int_max=i #updating the maximum value
+            m +=1
+    return [m,n]
+            
+    
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    scores = list(map(int, input().rstrip().split()))
+
+    result = breakingRecords(scores)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
