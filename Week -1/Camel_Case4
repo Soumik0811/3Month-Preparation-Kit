@@ -1,0 +1,70 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT///
+while True:
+    try:
+        s=input().rstrip()
+        first=s[0]
+        third=s[2]
+        last=s[-2:]
+        n=s[4:]
+        if first=="S": 
+            for i in range(0,len(s)):
+                if s[i].isupper():
+                    index=i
+        
+            s=s.lower()
+
+            if last=="()":
+                first_part=s[4:index]
+                last_part=s[index:-2]
+                print(first_part+" "+last_part)
+          
+            else:
+                 first_part=s[4:index]
+                 last_part=s[index:]
+                 print(first_part+" "+last_part)
+                 
+        elif first == "C":
+                    if s[2] == "M":
+                        new = ""
+                        capitalize_next = False
+        
+                        for char in n:
+                            if char == " ":
+                                capitalize_next = True
+                            elif capitalize_next:
+                                new += char.upper()
+                                capitalize_next = False
+                            else:
+                                new += char
+        
+                        print(new + "()")
+                    elif s[2]=="V":
+                        new = ""
+                        capitalize_next = False
+        
+                        for char in n:
+                            if char == " ":
+                                capitalize_next = True
+                            elif capitalize_next:
+                                new += char.upper()
+                                capitalize_next = False
+                            else:
+                                new += char
+        
+                        print(new)
+                                    
+                    else:
+                        new = ""
+                        capitalize_next = True      
+                        for char in n:
+                            if char == " ":
+                                capitalize_next = True
+                            elif capitalize_next:
+                                new += char.upper()
+                                capitalize_next = False
+                            else:
+                                new += char
+        
+                        print(new)
+    except EOFError:
+            break
