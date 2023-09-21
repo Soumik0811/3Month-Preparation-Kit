@@ -8,7 +8,7 @@ import sys
 
 
 def lonelyinteger(a):
-    # Write your code here
+    # One can use the .count() also it will also take O(n)
     
     # With O(n^2)
     # index=0
