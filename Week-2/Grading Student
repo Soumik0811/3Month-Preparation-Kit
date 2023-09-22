@@ -1,0 +1,37 @@
+
+import math
+import os
+import random
+import re
+import sys
+
+def gradingStudents(grades):
+    # Write your code here
+    f_end=list() # Creating an empty list
+    for i in grades:
+        j=i%5   # calculating the remainder
+        if i<37 or j<3:  # checking if number less than 37 or if the remainder is less than 3
+            f_end.append(i)
+        else:
+            i += 5-j     # calculating the number that is to be added to make it to the next multiple
+            f_end.append(i)
+    return f_end
+            
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    grades_count = int(input().strip())
+
+    grades = []
+
+    for _ in range(grades_count):
+        grades_item = int(input().strip())
+        grades.append(grades_item)
+
+    result = gradingStudents(grades)
+
+    fptr.write('\n'.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
