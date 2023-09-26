@@ -8,15 +8,18 @@ import sys
 
 
 def countingValleys(steps, path):
-    clevel,valleys = 0,0
-    for step in path:
-        if step == "U":
-            if clevel == -1:
-                valleys += 1
-            clevel += 1
-        elif step == "D":
-            clevel =clevel- 1
-    return valleys   
+    res=[]                # initializing an array
+    c=s=0        
+    for i in path:
+        if i=="U":        #checking if the element is U
+            s=s+1         # then s+1
+        else:
+            s=s-1         # if not then s-1
+        res.append(s)     # making a new list which stores the values of s
+    for j in range(len(res)):
+        if res[j]==0 and res[j-1]<0:   # checking if the element is 0 and the previous element is negative
+            c=c+1
+    return c    # returning the count
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
